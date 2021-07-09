@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config ./src/",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
-    "start": "node ./src"
+    "start": "node ./src",
+    "__dev": "nodemon -r dotenv/config ./src",
+    "dev": "ts-node-dev ./src"
   },
   "type": "module",
   "keywords": [],
