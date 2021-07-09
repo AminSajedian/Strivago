@@ -3,9 +3,9 @@ import DestinationModel from "../../models/index.js"
 
 const { Router } = express
 
-const destinationsRouter = new Router()
+const destinationRouter = new Router()
 
-destinationsRouter.get("/", async (req, res) => {
+destinationRouter.get("/", async (req, res) => {
     const data = await DestinationModel.find({})
     let cities = data.map(des => des.city)
 
@@ -18,7 +18,7 @@ destinationsRouter.get("/", async (req, res) => {
     res.status(200).send({ NotDuplicatedCities })
 })
 
-destinationsRouter.get('/:city', async (req, res) => {
+destinationRouter.get('/:city', async (req, res) => {
     try {
         const destination = await DestinationModel.find({ city: req.params.city })
         if (!destination) {
@@ -33,7 +33,7 @@ destinationsRouter.get('/:city', async (req, res) => {
 })
 
 
-// destinationsRouter.post("/", async (req, res) => {
+// destinationRouter.post("/", async (req, res) => {
 
 //     try {
 //         const { name, description, maxGuests, city } = req.body
@@ -50,4 +50,4 @@ destinationsRouter.get('/:city', async (req, res) => {
 //     }
 // })
 
-export default destinationsRouter
+export default destinationRouter

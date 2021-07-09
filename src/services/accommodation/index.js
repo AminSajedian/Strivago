@@ -3,14 +3,14 @@ import AccommodationModel from "../../models/index.js"
 
 const { Router } = express
 
-const accommodationsRouter = new Router()
+const accommodationRouter = new Router()
 
-accommodationsRouter.get("/", async (req, res) => {
-    const accommodations = await AccommodationModel.find({})
-    res.status(200).send({ accommodations })
+accommodationRouter.get("/", async (req, res) => {
+    const accommodation = await AccommodationModel.find({})
+    res.status(200).send({ accommodation })
 })
 
-accommodationsRouter.get('/:id', async (req, res) => {
+accommodationRouter.get('/:id', async (req, res) => {
     try {
         const accommodation = await AccommodationModel.findById(req.params.id)
         if (!accommodation) {
@@ -24,7 +24,7 @@ accommodationsRouter.get('/:id', async (req, res) => {
 })
 
 
-accommodationsRouter.post("/", async (req, res) => {
+accommodationRouter.post("/", async (req, res) => {
 
     try {
         const { name, description, maxGuests, city } = req.body
@@ -42,7 +42,7 @@ accommodationsRouter.post("/", async (req, res) => {
 })
 
 
-accommodationsRouter.put("/:id", async (req, res, next) => {
+accommodationRouter.put("/:id", async (req, res, next) => {
     try {
         const accommodation = await AccommodationModel.findById(req.params.id)
         if (!accommodation) {
@@ -62,7 +62,7 @@ accommodationsRouter.put("/:id", async (req, res, next) => {
 
 
 
-accommodationsRouter.delete('/:id', async (req, res, next) => {
+accommodationRouter.delete('/:id', async (req, res, next) => {
     try {
         // if (req.params.id.length !== 23) {
         //     res.status(404).send();
@@ -82,4 +82,4 @@ accommodationsRouter.delete('/:id', async (req, res, next) => {
 })
 
 
-export default accommodationsRouter
+export default accommodationRouter
