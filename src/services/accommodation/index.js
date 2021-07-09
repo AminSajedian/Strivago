@@ -51,9 +51,8 @@ accommodationRouter.put("/:id", async (req, res, next) => {
         }
         const _accommodation = await AccommodationModel.findByIdAndUpdate(req.params.id, req.body, { runValidators: true, new: true, })
         if (_accommodation) {
-            res.status(204).send()
+            res.status(204).send(_accommodation)
         }
-
     } catch (error) {
         console.log(error.message)
     }

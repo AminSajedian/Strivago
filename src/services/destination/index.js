@@ -7,15 +7,15 @@ const destinationRouter = new Router()
 
 destinationRouter.get("/", async (req, res) => {
     const data = await DestinationModel.find({})
-    let cities = data.map(des => des.city)
+    let allCities = data.map(des => des.city)
 
-    let NotDuplicatedCities = [];
-    cities.forEach((des) => {
-        if (!NotDuplicatedCities.includes(des)) {
-            NotDuplicatedCities.push(des);
+    let cities = [];
+    allCities.forEach((des) => {
+        if (!cities.includes(des)) {
+            cities.push(des);
         }
     });
-    res.status(200).send({ NotDuplicatedCities })
+    res.status(200).send({ cities })
 })
 
 destinationRouter.get('/:city', async (req, res) => {

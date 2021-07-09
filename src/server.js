@@ -12,7 +12,7 @@ server.get("/test", (req, res) => {
 })
 
 server.use("/accommodation", accommodationRouter)
-server.use("/destination", destinationRouter)
+server.use("/destinations", destinationRouter)
 
 
 export default server
