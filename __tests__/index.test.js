@@ -105,7 +105,8 @@ describe("Checking application main endpoints", () => {
 
     // GET /accommodation/:id - 404 if not existing
     it("should check that the /accommodation/:id is returning proper error when the id is wrong", async () => {
-        let id = "aaaaaaaaaaaaaaaaaaaaaaaa"
+        // let id = "aaaaaaaaaaaaaaaaaaaaaaaa"
+        let id = "123"
         const _response = await request.get(`/accommodation/${id}`)
         expect(_response.status).toBe(404)
     })

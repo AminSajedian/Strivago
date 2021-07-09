@@ -55,6 +55,7 @@ accommodationRouter.put("/:id", async (req, res, next) => {
         }
     } catch (error) {
         console.log(error.message)
+        res.status(500).send({message: error.message})
     }
 
 })
@@ -69,7 +70,7 @@ accommodationRouter.delete('/:id', async (req, res, next) => {
         const accommodation = await AccommodationModel.findById(req.params.id)
         if (!accommodation) {
             res.status(404).send();
-            // return
+            return
         }
         const _accommodation = await AccommodationModel.findByIdAndDelete(req.params.id)
         if (_accommodation) {
