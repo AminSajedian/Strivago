@@ -151,6 +151,3 @@ describe("Checking application main endpoints", () => {
         })
     })
 })
-
-
-
