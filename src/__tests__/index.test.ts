@@ -1,8 +1,8 @@
 import dotenv from "dotenv"
 import supertest from "supertest"
-import server from "../src/server.js"
+import server from "../server"
 import mongoose from "mongoose"
-import AccommodationModel from "../src/models/index.js"
+import AccommodationModel from "../models/index"
 
 dotenv.config()
 const request = supertest(server)
@@ -105,8 +105,7 @@ describe("Checking application main endpoints", () => {
 
     // GET /accommodation/:id - 404 if not existing
     it("should check that the /accommodation/:id is returning proper error when the id is wrong", async () => {
-        // let id = "aaaaaaaaaaaaaaaaaaaaaaaa"
-        let id = "123"
+        let id = "aaaaaaaaaaaaaaaaaaaaaaaa"
         const _response = await request.get(`/accommodation/${id}`)
         expect(_response.status).toBe(404)
     })
